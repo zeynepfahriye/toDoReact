@@ -23,8 +23,13 @@ reducers:{
         const {id} = action.payload;
         const item = state.items.find(item =>item.id ===id)
         item.completed = !item.completed
+    },
+    destory:(state,action)=> {
+        const id = action.payload
+        const filters = state.items.filter((item)=>item.id !==id)
+        state.items = filters
     }
 }
 })
-export  const {addToDo,toggle} =todosSlice.actions
+export  const {addToDo,toggle,destory} =todosSlice.actions
 export default todosSlice.reducer
