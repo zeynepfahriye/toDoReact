@@ -15,7 +15,11 @@ initialState:{
         }
     ]
 },
-reducers:{}
+reducers:{
+    addToDo:(state,action)=>{
+        state.items.push(action.payload)
+    }
+}
 })
-
+export  const {addToDo} =todosSlice.actions
 export default todosSlice.reducer
