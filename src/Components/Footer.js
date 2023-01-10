@@ -9,5 +9,5 @@ function Footer() {
 </footer>
   )
 }
-
-export default Footer
+//footer'ın tekrar tekrar render edilmesini önledik.
+export default React.memo(Footer)
