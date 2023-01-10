@@ -1,10 +1,10 @@
 import React from 'react'
 import { useSelector ,useDispatch} from 'react-redux'
-import { changeActiveFilter ,clearCompleted} from '../Redux/todos/todosSlice'
+import { changeActiveFilter ,clearCompleted,selectTodos} from '../Redux/todos/todosSlice'
 
 function ContentFooter() {
 	const dispatch = useDispatch()
-	const items = useSelector(state =>state.todos.items)
+	const items = useSelector(selectTodos)
 	const itemLeft = items.filter(item=> !item.completed).lenght
 
 	const activeFilter = useSelector((state)=>state.todos.activeFilter)
