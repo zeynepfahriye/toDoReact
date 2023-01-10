@@ -13,7 +13,7 @@ function Form() {
   return (
     <form onSubmit={handleSubmit}>
 			<input 
-      class="new-todo"
+      className="new-todo"
        placeholder="What needs to be done?" 
        autoFocus 
         value={title}

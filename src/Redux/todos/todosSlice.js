@@ -13,7 +13,8 @@ initialState:{
             title:'Read a book',
             completed:false
         }
-    ]
+    ],
+    activeFilter:'all'
 },
 reducers:{
     addToDo:(state,action)=>{
@@ -26,10 +27,17 @@ reducers:{
     },
     destory:(state,action)=> {
         const id = action.payload
-        const filters = state.items.filter((item)=>item.id !==id)
+        const filters = state.items.filter((item)=>item.id !== id)
         state.items = filters
+    },
+    changeActiveFilter : (state,action)=>{
+        state.activeFilter = action.payload
+    },
+    clearCompleted:(state)=>{
+        const filtered = state.items.filter(item=>item.completed ===false)
+        state.items=filtered
     }
 }
 })
-export  const {addToDo,toggle,destory} =todosSlice.actions
+export  const {addToDo,toggle,destory,changeActiveFilter,clearCompleted} =todosSlice.actions
 export default todosSlice.reducer
